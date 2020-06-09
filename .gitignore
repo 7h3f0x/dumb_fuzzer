@@ -1,4 +1,4 @@
 bin/*
 test.sample
-crash*.sample
+crash.sample.*
 
