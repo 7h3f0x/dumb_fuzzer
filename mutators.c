@@ -100,7 +100,7 @@ char* mutate(char *buf, size_t sz)
 	char *mutated_buf = (char *)calloc(sz, 1);
 	memcpy(mutated_buf, buf, sz);
 	unsigned int choice = rand() % numMutators;
-	printf("Choosing mutator %u\n", choice);
+	// printf("Choosing mutator %u\n", choice);
 	mutatorTable[choice](mutated_buf, sz);
 	return mutated_buf;
 }
