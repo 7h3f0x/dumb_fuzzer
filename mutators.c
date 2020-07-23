@@ -12,7 +12,7 @@ char* (*mutatorTable[numMutators])(char* , size_t) = {
 };
 
 // Table of magic substitutions
-magic magicSubstitutions[numMagic] = {
+magic magicSubstitutions[NUM_MAGIC] = {
 	{1, 0xff},
 	{1, 0x7f},
 	{1, 0},
@@ -70,7 +70,7 @@ char* mutate_magic(char *buf, size_t sz)
 	}
 	for (size_t i = 0; i < count;)
 	{
-		unsigned int choice = rand() % numMagic;
+		unsigned int choice = rand() % NUM_MAGIC;
 		unsigned int numBytes = magicSubstitutions[choice].numBytes;
 		if (sz < numBytes)
 		{

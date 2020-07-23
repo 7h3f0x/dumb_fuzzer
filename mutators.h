@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define numMagic 10
+#define NUM_MAGIC 10
 #define numMutators 3
 
 typedef struct magic_struct

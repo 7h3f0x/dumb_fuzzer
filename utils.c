@@ -22,7 +22,7 @@ void parse_arguements(int argc, char **argv, char **inputfname, char **fuzzfname
 			/*
 			default:
 				fprintf(stderr, "Unknown option %c\n", optopt);
-				exit(-1);
+				exit(1);
 			*/
 		}
 		option = getopt(argc, argv, ":i:f:");
@@ -30,12 +30,12 @@ void parse_arguements(int argc, char **argv, char **inputfname, char **fuzzfname
 	if (*inputfname == NULL)
 	{
 		fputs("Please specify an inputfile", stderr);
-		exit(-1);
+		exit(1);
 	}
 	if (*fuzzfname == NULL)
 	{
 		fputs("Please specify a file to fuzz", stderr);
-		exit(-1);
+		exit(1);
 	}
 }
 

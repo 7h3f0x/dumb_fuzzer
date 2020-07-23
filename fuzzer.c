@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		if (child_pid == -1)
 		{
 			fputs("Failed to create child process, exiting...", stderr);
-			exit(-1);
+			exit(1);
 		}
 		if (child_pid == 0)
 		{
