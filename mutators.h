@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-#define NUM_MAGIC 10
-#define numMutators 3
-
 typedef struct magic_struct
 {
 	unsigned int numBytes;

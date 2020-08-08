@@ -5,14 +5,16 @@
 #include "utils.h"
 
 // Table of mutators
-char* (*mutatorTable[numMutators])(char* , size_t) = {
+char* (*mutatorTable[])(char* , size_t) = {
 	mutate_bits,
 	mutate_bytes,
 	mutate_magic
 };
 
+#define NUM_MUTATORS sizeof(mutatorTable)/sizeof(void *)
+
 // Table of magic substitutions
-magic magicSubstitutions[NUM_MAGIC] = {
+magic magicSubstitutions[] = {
 	{1, 0xff},
 	{1, 0x7f},
 	{1, 0},
@@ -25,6 +27,7 @@ magic magicSubstitutions[NUM_MAGIC] = {
 	{4, 0x7fffffff}
 };
 
+#define NUM_MAGIC sizeof(magicSubstitutions)/sizeof(void *)
 
 
 char* mutate_bits(char *buf, size_t sz)
@@ -99,7 +102,7 @@ char* mutate(char *buf, size_t sz)
 {
 	char *mutated_buf = (char *)calloc(sz, 1);
 	memcpy(mutated_buf, buf, sz);
-	unsigned int choice = rand() % numMutators;
+	unsigned int choice = rand() % NUM_MUTATORS;
 	// printf("Choosing mutator %u\n", choice);
 	mutatorTable[choice](mutated_buf, sz);
 	return mutated_buf;
